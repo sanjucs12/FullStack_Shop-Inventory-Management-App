@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inventory Manager</title>
+    <link rel="stylesheet" href="./CRUD CRUD/styles.css" />
   </head>
   <body>
     <header><h2>INVENTORY MANAGER</h2></header>
     <section class="form-section">
+      <h3>ADD ITEMS</h3>
       <form onsubmit="formSubmitHandler(event)">
-        <label for="name">Name</label> <br />
+        <label for="name">Item Name</label> <br />
         <input type="text" id="name" /> <br />
         <label for="description">Description</label><br />
         <input type="text" id="description" /><br />
@@ -21,6 +23,7 @@
       </form>
     </section>
     <section class="display-section">
+      <h3>INVENTORY</h3>
       <table class="table">
         <tr class="table-header">
           <th>Name</th>
@@ -29,14 +32,14 @@
           <th>Quantity Available</th>
           <th>Quantity Sold</th>
         </tr>
-        <tr class="table-row">
+        <!-- <tr class="table-row">
           <td>Realme</td>
           <td>Mobile</td>
           <td>20000</td>
           <td>5</td>
-          <td><input type="number" /></td>
-          <td><button>Submit</button></td>
-        </tr>
+          <td><input type="number" id="quantity-sold" /></td>
+          <td><button id="table-submit-btn">Submit</button></td>
+        </tr> -->
       </table>
     </section>
     <script src="index.js"></script>

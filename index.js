@@ -79,6 +79,7 @@ async function tableSubmitHandler(event, details) {
         `http://localhost:3000/inventory/delete-item/${details.id}`
       );
       location.reload();
+      alert(`${details.name} : IS OUT OF STOCK..!`);
       console.log(response);
     } catch (err) {
       console.log(err);
