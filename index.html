@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Manager</title>
+  </head>
+  <body>
+    <header><h2>INVENTORY MANAGER</h2></header>
+    <section class="form-section">
+      <form onsubmit="formSubmitHandler(event)">
+        <label for="name">Name</label> <br />
+        <input type="text" id="name" /> <br />
+        <label for="description">Description</label><br />
+        <input type="text" id="description" /><br />
+        <label for="price">Price</label><br />
+        <input type="number" id="price" /><br />
+        <label for="quantity">Quantity</label><br />
+        <input type="number" id="quantity" min="0" /><br />
+        <button type="submit">Add Item</button>
+      </form>
+    </section>
+    <section class="display-section">
+      <table class="table">
+        <tr class="table-header">
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity Available</th>
+          <th>Quantity Sold</th>
+        </tr>
+        <tr class="table-row">
+          <td>Realme</td>
+          <td>Mobile</td>
+          <td>20000</td>
+          <td>5</td>
+          <td><input type="number" /></td>
+          <td><button>Submit</button></td>
+        </tr>
+      </table>
+    </section>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </body>
+</html>
