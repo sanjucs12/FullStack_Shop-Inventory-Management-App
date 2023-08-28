@@ -14,12 +14,14 @@ async function formSubmitHandler(event) {
   };
   try {
     const res = await axios.post(
-      "https://crudcrud.com/api/b246e4339ca34bd3bb90d57271d86358/inventory",
+      "http://localhost:3000/inventory/add-item",
       details
     );
-    displayDetails(res.data);
+    displayDetails(res.data.newItem);
+    console.log(res.data.newItem);
   } catch (err) {
     console.log(err);
+    alert("PLEASE FILL REQUIRED FIELDS");
   }
 }
 
@@ -52,7 +54,9 @@ async function tableSubmitHandler(event, details) {
   //   console.log("clicked");
   //   console.log(inputValue);
   //   console.log(details);
-  if (updatedQuantity > 0) {
+  if (!inputValue) {
+    alert("PLEASE ENTER THE NUMBER OF ITEMS TO DISPATCH");
+  } else if (updatedQuantity > 0) {
     const updatedDetails = {
       name: details.name,
       description: details.description,
@@ -61,7 +65,7 @@ async function tableSubmitHandler(event, details) {
     };
     try {
       const response = await axios.put(
-        `https://crudcrud.com/api/b246e4339ca34bd3bb90d57271d86358/inventory/${details._id}`,
+        `http://localhost:3000/inventory/update-item/${details.id}`,
         updatedDetails
       );
       console.log(response);
@@ -72,10 +76,10 @@ async function tableSubmitHandler(event, details) {
   } else if (updatedQuantity === 0) {
     try {
       const response = await axios.delete(
-        `https://crudcrud.com/api/b246e4339ca34bd3bb90d57271d86358/inventory/${details._id}`
+        `http://localhost:3000/inventory/delete-item/${details.id}`
       );
-      console.log(response);
       location.reload();
+      console.log(response);
     } catch (err) {
       console.log(err);
     }
@@ -90,14 +94,15 @@ async function tableSubmitHandler(event, details) {
 window.addEventListener("DOMContentLoaded", getRequest);
 function getRequest() {
   axios
-    .get("https://crudcrud.com/api/b246e4339ca34bd3bb90d57271d86358/inventory")
+    .get("http://localhost:3000/inventory/get-items")
     .then((res) => {
-      //   console.log(res);
+      // console.log(res);
       res.data.map((item) => {
         displayDetails(item);
       });
     })
     .catch((err) => {
       console.log(err);
+      alert("SOMETHING WENT WRONG:PLEASE TRY AGAIN");
     });
 }
