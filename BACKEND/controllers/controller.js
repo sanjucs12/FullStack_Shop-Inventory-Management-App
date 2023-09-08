@@ -1,4 +1,4 @@
-const Item = require("../utils/item");
+const Item = require("../models/item");
 
 exports.addItem = async (req, res, next) => {
   if (!req.body.name || !req.body.price || !req.body.quantity) {
